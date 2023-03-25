@@ -1,15 +1,22 @@
-"use strict";
-const num1elem = document.getElementById('num1');
-const num2elem = document.getElementById('num2');
-const buttonElem = document.querySelector('button');
+var num1elem = document.getElementById('num1');
+var num2elem = document.getElementById('num2');
+var buttonElem = document.querySelector('button');
 function addo(num1, num2) {
-    return num1 + num2;
+    if (typeof (num1) === 'number' && typeof (num2) === 'number') {
+        return num1 + num2;
+    }
+    else if (typeof (num1) === 'string' && typeof (num2) === 'string') {
+        return num1 + ' ' + num2;
+    }
+    return +num1 + +num2; //+sign indicates int type
 }
 // console.log(add(1,2));
 // console.log(add('1','2'));
-buttonElem.addEventListener('click', () => {
-    const num1 = num1elem.value; //.value alaways return string
-    const num2 = num2elem.value;
-    const res = addo(+num1, +num2); //to conver from string value to int val we need to put '+' sign.
+buttonElem.addEventListener('click', function () {
+    var num1 = num1elem.value; //.value alaways return string
+    var num2 = num2elem.value;
+    var res = addo(+num1, +num2); //to conver from string value to int val we need to put '+' sign.
+    var strRes = addo(num1, num2);
     console.log(res);
+    console.log(strRes);
 });
