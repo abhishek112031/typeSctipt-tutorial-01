@@ -1,6 +1,8 @@
 const num1elem=document.getElementById('num1') as HTMLInputElement;
 const num2elem=document.getElementById('num2') as HTMLInputElement;
 const buttonElem=document.querySelector('button')!;
+const numResults:number[]=[];
+const stringResults:string[]=[];
 
 
 
@@ -16,8 +18,12 @@ function addo(num1:number | string,num2:number | string){ //only number and stri
    
     return +num1+ +num2;//+sign indicates int type
 }
-// console.log(add(1,2));
-// console.log(add('1','2'));
+
+//object type:-->
+function printResult(resultObj:{val:number,timeStamp:Date}){
+    console.log("obj--->",resultObj.val,resultObj.timeStamp);
+
+}
 
 
 
@@ -28,8 +34,15 @@ buttonElem.addEventListener('click',()=>{
     const res=addo(+num1,+num2);//to conver from string value to int val we need to put '+' sign.
     const strRes=addo(num1,num2);
 
-    console.log(res);
-    console.log(strRes);
+    // console.log(res);
+    // console.log(strRes);
+    stringResults.push(strRes as string);
+    numResults.push(res as number);
+
+    console.log(numResults,stringResults)
+
+
+    printResult({val:res as number,timeStamp:new Date()})
 
 
 });
