@@ -19,8 +19,8 @@ function printResult(resultObj) {
 buttonElem.addEventListener('click', function () {
     var num1 = num1elem.value; //.value alaways return string
     var num2 = num2elem.value;
-    var res = addo(+num1, +num2); //to conver from string value to int val we need to put '+' sign.
-    var strRes = addo(num1, num2);
+    var res = addo(+num1, +num2); //putting arg as number:to conver from string value to int val we need to put '+' sign.
+    var strRes = addo(num1, num2); //putting arg as string
     // console.log(res);
     // console.log(strRes);
     stringResults.push(strRes);
