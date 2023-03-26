@@ -1,7 +1,11 @@
 const num1elem=document.getElementById('num1') as HTMLInputElement;
 const num2elem=document.getElementById('num2') as HTMLInputElement;
 const buttonElem=document.querySelector('button')!;
-const numResults:number[]=[];
+// const numResults:number[]=[];
+// const stringResults:string[]=[];
+
+//generic type:its a type which interact with another type
+const numResults:Array<number>=[];//that means : inside array the elements will be number or only number inside is allowed
 const stringResults:string[]=[];
 
 //type aliases:-->union type into a single aliases:
@@ -14,6 +18,8 @@ interface resultObjectInterface{
     timeStamp:Date
 
 }
+
+
 
 
 function addo(num1:strOrNum,num2:strOrNum){ //only number and string  are allowed(feature: union type)
@@ -55,4 +61,17 @@ buttonElem.addEventListener('click',()=>{
 
 
 });
+
+
+//another example of generic type is promise: to work with promises we should use es6 not below that:
+//goto -->tsconfig.json-->target--put==>"es6" if it is not there(possible u r using old version )
+const myPromise=new Promise<string>((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("promise object supports generic type so we can define type with in angle brackets inside promise and it will work!")
+    },2000)
+});
+//remember we should compiled through tsc command only to compile with tsc config.json fie
+myPromise.then(result=>{
+    console.log("promise is resolved with value , type:generic->>>",result)
+})
 
